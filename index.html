@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ApexPlanet Task 3 - Advanced Styling and JavaScript">
+  <title>Task 3 | Advanced Styling & JavaScript</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a class="brand" href="#home" aria-label="Task 3 home">
+        <span class="brand-mark">&lt;/&gt;</span>
+        <span>
+          <strong>Apex<span>Planet</span></strong>
+          <small>Task 3 • Frontend Development</small>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#responsive">Responsive</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#api">API Data</a>
+      </nav>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="eyebrow">TASK 3 • ADVANCED STYLING & JAVASCRIPT</span>
+          <h1>Interactive web experiences with <span>modern CSS & JavaScript.</span></h1>
+          <p>
+            A professional demonstration of responsive layouts, an interactive image carousel,
+            and live data fetched from public APIs.
+          </p>
+          <div class="hero-actions">
+            <a href="#responsive" class="btn btn-primary">Explore Project <span>↓</span></a>
+            <a href="#api" class="btn btn-secondary">View API Demo</a>
+          </div>
+
+          <div class="tech-row">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript ES6+</span>
+            <span>REST API</span>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="code-window">
+            <div class="window-top">
+              <div class="window-dots"><i></i><i></i><i></i></div>
+              <span>task-3.js</span>
+            </div>
+            <pre><code><b>const</b> project = {
+  responsive: <em>true</em>,
+  carousel: <em>true</em>,
+  liveData: <em>true</em>,
+  status: <strong>"ready"</strong>
+};
+
+<span class="comment">// Build. Test. Improve.</span>
+project.<b>launch</b>();</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="responsive">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">01 • RESPONSIVE DESIGN</span>
+            <h2>One layout. Every screen.</h2>
+          </div>
+          <p>Resize the browser to see the layout, typography, navigation and cards adapt automatically.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="icon">⌁</div>
+            <h3>Fluid Layouts</h3>
+            <p>CSS Grid and Flexbox create flexible layouts that scale naturally across devices.</p>
+            <span class="card-tag">CSS GRID</span>
+          </article>
+
+          <article class="feature-card">
+            <div class="icon">Aa</div>
+            <h3>Adaptive Typography</h3>
+            <p>Responsive font sizing keeps headings readable and balanced on smaller screens.</p>
+            <span class="card-tag">CLAMP()</span>
+          </article>
+
+          <article class="feature-card">
+            <div class="icon">◫</div>
+            <h3>Mobile Navigation</h3>
+            <p>A JavaScript-powered mobile menu provides a clean experience on compact displays.</p>
+            <span class="card-tag">MEDIA QUERY</span>
+          </article>
+        </div>
+
+        <div class="device-preview">
+          <div class="device desktop-device">
+            <div class="device-label">DESKTOP</div>
+            <div class="mock-screen wide">
+              <div></div><div></div><div></div><div></div>
+            </div>
+          </div>
+          <div class="device tablet-device">
+            <div class="device-label">TABLET</div>
+            <div class="mock-screen">
+              <div></div><div></div><div></div>
+            </div>
+          </div>
+          <div class="device mobile-device">
+            <div class="device-label">MOBILE</div>
+            <div class="mock-screen">
+              <div></div><div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="quiz">
+      <div class="container">
+        <div class="section-heading light">
+          <div>
+            <span class="eyebrow">02 • INTERACTIVE QUIZ</span>
+            <h2>Test your frontend knowledge.</h2>
+          </div>
+          <p>Answer JavaScript, HTML and CSS questions. Your score is calculated instantly at the end.</p>
+        </div>
+
+        <div class="quiz-shell">
+          <div class="quiz-topbar">
+            <div>
+              <span class="quiz-label">FRONTEND FUNDAMENTALS</span>
+              <strong id="quizProgress">Question 1 of 8</strong>
+            </div>
+            <div class="quiz-score-mini">Score <strong id="liveScore">0</strong></div>
+          </div>
+
+          <div class="progress-track">
+            <div class="progress-fill" id="quizProgressBar"></div>
+          </div>
+
+          <div class="quiz-body" id="quizBody">
+            <div class="question-number" id="questionNumber">01</div>
+            <h3 id="questionText">Loading question...</h3>
+            <div class="options" id="optionsContainer"></div>
+
+            <div class="quiz-feedback" id="quizFeedback" aria-live="polite"></div>
+
+            <div class="quiz-actions">
+              <button class="btn btn-secondary quiz-restart" id="restartQuiz">Restart Quiz</button>
+              <button class="btn btn-primary" id="nextQuestion" disabled>Next Question <span>→</span></button>
+            </div>
+          </div>
+
+          <div class="quiz-result" id="quizResult">
+            <div class="result-icon">✓</div>
+            <span class="quiz-label">QUIZ COMPLETE</span>
+            <h3 id="resultTitle">Great work!</h3>
+            <div class="result-score"><strong id="finalScore">0</strong><span>/ 8</span></div>
+            <p id="resultMessage">You completed the frontend fundamentals quiz.</p>
+            <button class="btn btn-primary" id="tryAgain">Try Again <span>↻</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="api">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">03 • PUBLIC API</span>
+            <h2>Live data, fetched dynamically.</h2>
+          </div>
+          <p>The weather card uses the Open-Meteo API and updates the interface without reloading the page.</p>
+        </div>
+
+        <div class="api-layout">
+          <div class="weather-card">
+            <div class="weather-top">
+              <div>
+                <span class="card-label">LIVE WEATHER</span>
+                <h3 id="locationName">Kolkata, India</h3>
+                <p id="weatherStatus">Loading weather...</p>
+              </div>
+              <div class="weather-icon" id="weatherIcon">☀</div>
+            </div>
+
+            <div class="temperature">
+              <strong id="temperature">--</strong><sup>°C</sup>
+            </div>
+
+            <div class="weather-details">
+              <div><span>Feels like</span><strong id="feelsLike">--°C</strong></div>
+              <div><span>Wind</span><strong id="windSpeed">-- km/h</strong></div>
+              <div><span>Humidity</span><strong id="humidity">--%</strong></div>
+            </div>
+
+            <div class="weather-search">
+              <label for="cityInput">Search city</label>
+              <div class="input-row">
+                <input id="cityInput" type="text" value="Kolkata" placeholder="e.g. Delhi">
+                <button id="weatherBtn" class="btn btn-primary">Get Weather</button>
+              </div>
+              <small id="apiMessage">Powered by Open-Meteo</small>
+            </div>
+          </div>
+
+          <div class="joke-card">
+            <div class="joke-icon">JS</div>
+            <span class="card-label">BONUS API • JOKE</span>
+            <h3>Need a quick developer laugh?</h3>
+            <p id="jokeText">Click the button to fetch a fresh programming joke from a public API.</p>
+            <button id="jokeBtn" class="btn btn-dark">Get New Joke <span>→</span></button>
+            <div class="api-status" id="jokeStatus">Ready to fetch</div>
+          </div>
+        </div>
+
+        <div class="code-note">
+          <div class="code-note-icon">&lt;/&gt;</div>
+          <div>
+            <strong>What this demonstrates</strong>
+            <p>fetch() • async/await • JSON parsing • error handling • DOM manipulation • event listeners</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div>
+        <strong>ApexPlanet • Task 3</strong>
+        <p>Advanced Styling and JavaScript</p>
+      </div>
+      <span>Built with HTML • CSS • JavaScript</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
